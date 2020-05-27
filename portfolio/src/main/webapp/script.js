@@ -13,16 +13,28 @@
 // limitations under the License.
 
 /**
+Your goal this week is to customize your portfolio page. What that means is up to you, but here are a few ideas to get you started:
+Add a couple paragraphs explaining your background and what makes you you.
+Add a list of projects you've worked on.
+Add a link to your LinkedIn and GitHub profiles.
+Add images! Create a gallery of your favorite places, or selfies, or pictures of your pets.
+Add a couple paragraphs explaining what you enjoy photographing.
+Add some blog posts explaining one of your hidden talents.
+
+This is your portfolio page, so make it your own! 
+*/
+
+/**
  * Adds a random greeting to the page.
  */
-function addRandomGreeting() {
-  const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
+function addRandomMovieQuote() {
+    const movieQuotes =
+        ['I dont know how to make paint!', 'Yo Adrian!', 'This guy is a few tacos short of a combination plate.', 'They carried my mothers groceries outta respect.'];
 
-  // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
+    // Pick a random greeting.
+    const movieQuote = movieQuotes[Math.floor(Math.random() * movieQuotes.length)];
 
-  // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
+    // Add it to the page.
+    const movieQuoteContainer = document.getElementById('movie-quote-container');
+    movieQuoteContainer.innerText = movieQuote;
 }
