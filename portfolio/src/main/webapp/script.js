@@ -27,14 +27,14 @@ This is your portfolio page, so make it your own!
 /**
  * Adds a random greeting to the page.
  */
-function addRandomGreeting() {
-  const greetings =
+function addRandomMovieQuote() {
+  const movieQuotes =
       ['I dont know how to make paint!', 'Yo Adrian!', 'This guy is a few tacos short of a combination plate.', 'They carried my mothers groceries outta respect.'];
 
   // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
+  const movieQuote = movieQuotes[Math.floor(Math.random() * movieQuotes.length)];
 
   // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
+  const movieQuoteContainer = document.getElementById('movie-quote-container');
+  movieQuoteContainer.innerText = movieQuote;
 }
