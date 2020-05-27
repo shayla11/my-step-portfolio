@@ -25,6 +25,13 @@
         li a:hover {
             background-color: #A0AAFC;
         }
+
+        img {
+            float: left;
+            margin-right: 20px;
+        }
+
+
     </style>
     <meta charset="UTF-8">
     <title>My Portfolio</title>
@@ -34,17 +41,19 @@
   <body>
       <ul>
         <li><a href="#Home">Home</a></li>
-        <li><a href="#About Me">About</a></li>
+        <li><a href="about.html">About Me</a></li>
         <li><a href="#Projects">Projects</a></li>
         <li><a href="#Blog">Blog</a></li>
     </ul>
 
 
     <div id="content">
-      <h1>Shayla's Portfolio</h1>
-      <img src="/images/spidermanmeme.jpg" alt="Spiderman Meme" width="300" height="200">
-      <p> Howdy! This is my STEP portfolio project!
-      <p>Click here to get a random message:</p>
+      <h1 style="font-size:80px;">Shayla's Portfolio</h1>
+      <img src="/images/googleprofilepic.jpg" alt="Picture of Shayla" width="300" height="300">
+      <p> Howdy! My name is Shayla Sexton and This is my STEP portfolio!</p>
+      <p> In this portfolio you can find <b>Projects</b> that i'm working on, my <b>Blog</b>, and of course an <a href="about.html"><b>About Me</b></a> page! </p>
+      
+      <p>Click here to get a random movie quote:</p>
       <button onclick="addRandomGreeting()">Hello</button>
       <div id="greeting-container"></div>
     </div>
