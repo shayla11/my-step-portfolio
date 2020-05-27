@@ -1,15 +1,49 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #E8EAFF;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #A0AAFC;
+        }
+    </style>
     <meta charset="UTF-8">
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
   <body>
+      <ul>
+        <li><a href="#Home">Home</a></li>
+        <li><a href="#About Me">About</a></li>
+        <li><a href="#Projects">Projects</a></li>
+        <li><a href="#Blog">Blog</a></li>
+    </ul>
+
+
     <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
+      <h1>Shayla's Portfolio</h1>
+      <img src="/images/spidermanmeme.jpg" alt="Spiderman Meme" width="300" height="200">
+      <p> Howdy! This is my STEP portfolio project!
       <p>Click here to get a random message:</p>
       <button onclick="addRandomGreeting()">Hello</button>
       <div id="greeting-container"></div>
