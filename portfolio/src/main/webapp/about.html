@@ -62,9 +62,15 @@
 	.bgcolor {
 		background-color: #E7E7FE
 	}
-    .center{
-        text-align: center;
-    }
+
+	.connectlogo {
+		width: 100px;
+		height: 100px;
+	}
+
+	.center {
+		text-align: center;
+	}
 
 	.prev:hover,
 	.next:hover {
@@ -85,6 +91,10 @@
 	.active,
 	.dot:hover {
 		background-color: #717171;
+	}
+
+	.pictureWidth {
+		width: 100%;
 	}
 
 	/* Fading animation */
@@ -134,49 +144,59 @@
 		people say its superior to the others. Im still debating, but Far From Home's Illusion sequence still amazes me
 		to this day!<br><br> </p>
 
-    <h1 class="center"> Connect with me! <h1>
+		<h1 class="center"> Connect with me! <h1>
+				<center>
+					<a href="https://github.com/shayla11">
+						<img   src="/images/githubLogo.png" class="connectlogo">  </a>
+						<a href="https://www.linkedin.com/in/shayla-sexton/">
+							<img   src="/images/linkedinLogo.jpg" class="connectlogo">  </a>
+							<a href="https://twitter.com/HodgePodgeShay">
+								<img   src="/images/twitterlogo.jpg" class="connectlogo">  </a>
+								<a href="https://letterboxd.com/hodgepodgeshay/">
+									<img   src="/images/letterboxlogo.jpg" class="connectlogo">  </a>
+				</center>
 
-		<div class="slideshow-container">
+				<div class="slideshow-container">
 
-			<!-- Full-width images with number and caption text -->
-			<div class="mySlides fade">
-				<div class="numbertext">1 / 6</div>
-				<img src="/images/indoorgooglesign.jpg" style="width:100%">
-  </div>
-				<div class="mySlides fade">
-					<div class="numbertext">2 / 6</div>
-					<img src="/images/googlebikes.jpg" style="width:100%">
-  </div>
+					<!-- Full-width images with number and caption text -->
 					<div class="mySlides fade">
-						<div class="numbertext">3 / 6</div>
-						<img src="/images/ncatgooglers.jpg" style="width:100%">
+						<div class="numbertext">1 / 6</div>
+						<img src="/images/indoorgooglesign.jpg" class="pictureWidth" >
   </div>
 						<div class="mySlides fade">
-							<div class="numbertext">4 / 6</div>
-							<img src="/images/shaylagooglebike.jpg" style="width:100%">
+							<div class="numbertext">2 / 6</div>
+							<img src="/images/googlebikes.jpg"class="pictureWidth" >
   </div>
 							<div class="mySlides fade">
-								<div class="numbertext">5 / 6</div>
-								<img src="/images/ghc.jpg" style="width:100%">
+								<div class="numbertext">3 / 6</div>
+								<img src="/images/ncatgooglers.jpg"class="pictureWidth" >
   </div>
 								<div class="mySlides fade">
-									<div class="numbertext">6 / 6</div>
-									<img src="/images/outsidegooglesign.jpg" style="width:100%">
+									<div class="numbertext">4 / 6</div>
+									<img src="/images/shaylagooglebike.jpg" class="pictureWidth">
+  </div>
+									<div class="mySlides fade">
+										<div class="numbertext">5 / 6</div>
+										<img src="/images/ghc.jpg" class="pictureWidth">
+  </div>
+										<div class="mySlides fade">
+											<div class="numbertext">6 / 6</div>
+											<img src="/images/outsidegooglesign.jpg" class="pictureWidth">
   </div>
 
-									<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-									<a class="next" onclick="plusSlides(1)">&#10095;</a>
-								</div>
+											<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+											<a class="next" onclick="plusSlides(1)">&#10095;</a>
+										</div>
 
 
-								<div style="text-align:center">
-									<span class="dot" onclick="currentSlide(1)"></span>
-									<span class="dot" onclick="currentSlide(2)"></span>
-									<span class="dot" onclick="currentSlide(3)"></span>
-									<span class="dot" onclick="currentSlide(4)"></span>
-									<span class="dot" onclick="currentSlide(5)"></span>
-									<span class="dot" onclick="currentSlide(6)"></span>
-								</div>
+										<div style="text-align:center">
+											<span class="dot" onclick="currentSlide(1)"></span>
+											<span class="dot" onclick="currentSlide(2)"></span>
+											<span class="dot" onclick="currentSlide(3)"></span>
+											<span class="dot" onclick="currentSlide(4)"></span>
+											<span class="dot" onclick="currentSlide(5)"></span>
+											<span class="dot" onclick="currentSlide(6)"></span>
+										</div>
 
 </body>
 <script>
