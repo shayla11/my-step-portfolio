@@ -1,8 +1,39 @@
 <!DOCTYPE html>
 <html>
 <style>
-	.center {
+	.title {
 		text-align: center;
+		margin-bottom: 30px;
+	}
+
+	.gifsize {
+		width: 200px;
+		height: 200px;
+	}
+
+	.item1 {
+		grid-area: image;
+	}
+
+	.item2 {
+		grid-area: project;
+	}
+
+	.item3 {
+		grid-area: footer;
+	}
+
+	.grid-container {
+		display: grid;
+		grid-template-areas:
+			'image project project project project project '
+			'image footer footer footer footer footer';
+		padding: 5px;
+	}
+
+	.grid-container>div {
+		padding: 0px 0;
+		font-size: 20px;
 	}
 </style>
 
@@ -12,10 +43,17 @@
 </head>
 
 <body>
-	<h1 class="center">Projects I'm Working On</h1>
-	<!--will finish putting the project list and links to github if available -->
+	<h1 class="title"><u>Projects I'm Working On</u></h1>
 
-
+	<div class="grid-container">
+		<div class="item1"><img src="/gifs/pong.gif" alt="Pong gif" class="gifsize"></div>
+			<div class="item2">
+				<h1><u>Pong</u></h1>
+			</div>
+			<div class="item3">This is the repo for the game Pong! I wanted to grow my python skills and I found a
+				handful of beginner
+				projects that I could do! <a href="https://github.com/shayla11/Pong"> Link to repo! </a></div>
+		</div>
 </body>
 
 </html>
