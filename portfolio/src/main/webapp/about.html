@@ -3,9 +3,7 @@
 <style>
 	p {
 		text-align: center;
-		margin-top: 200px;
-		margin-left: 800px;
-		margin-right: 800px;
+		margin: 100px 20% 40px 20%;
 	}
 
 	* {
@@ -61,6 +59,13 @@
 		border-radius: 3px 0 0 3px;
 	}
 
+	.bgcolor {
+		background-color: #E7E7FE
+	}
+    .center{
+        text-align: center;
+    }
+
 	.prev:hover,
 	.next:hover {
 		background-color: rgba(0, 0, 0, 0.8);
@@ -115,59 +120,63 @@
 	<title>About Me Page</title>
 </head>
 
-<body style="background-color:#E7E7FE">
+<body class="bgcolor">
 	<p> Howdy! My name is Shayla Sexton! I was born and raised in Dallas Texas and I'm currently 20 years old. I will be
 		a junior in the fall at North Carolina Agricultural and Technical State University in Greensboro, NC. I am a
-		Computer Science Student and this is my 2nd summer at Google! </p>
+		Computer Science Student and this is my 2nd summer at Google! <br><br> I chose to study computer science because i have a passion for technology! My drea is to work in animation
+		technology on the software side. Im still not sure what that career looks like but I know I want to be apart of
+		the production process. While I dont have nay plans for graduate school, I wouldnt mind going for graphic
+		design. Although Im not incredibly artistic, Im still so facinatied by the animation process and would love a
+		career in that field!<br><br> My hobbies include Movies and Video Games, big surprise huh? Im a huge nintendo fan, and recently hoped on the
+		PS4 wagon. Some games ive been playing recently are Animal Crossing New Horizon, Splatoon 2, and Spiderman. Im
+		not the best by any means, but its always been a hobbie of mine! As far as movies go, I just like to watch the
+		good stuff! I watched the original Spiderman trilogy for the first time a couple of months ago and I see why
+		people say its superior to the others. Im still debating, but Far From Home's Illusion sequence still amazes me
+		to this day!<br><br> </p>
 
+    <h1 class="center"> Connect with me! <h1>
 
+		<div class="slideshow-container">
 
-
-
-
-
-
-	<div class="slideshow-container">
-
-		<!-- Full-width images with number and caption text -->
-		<div class="mySlides fade">
-			<div class="numbertext">1 / 6</div>
-			<img src="/images/indoorgooglesign.jpg" style="width:100%">
-  </div>
+			<!-- Full-width images with number and caption text -->
 			<div class="mySlides fade">
-				<div class="numbertext">2 / 6</div>
-				<img src="/images/googlebikes.jpg" style="width:100%">
+				<div class="numbertext">1 / 6</div>
+				<img src="/images/indoorgooglesign.jpg" style="width:100%">
   </div>
 				<div class="mySlides fade">
-					<div class="numbertext">3 / 6</div>
-					<img src="/images/ncatgooglers.jpg" style="width:100%">
+					<div class="numbertext">2 / 6</div>
+					<img src="/images/googlebikes.jpg" style="width:100%">
   </div>
 					<div class="mySlides fade">
-						<div class="numbertext">4 / 6</div>
-						<img src="/images/shaylagooglebike.jpg" style="width:100%">
+						<div class="numbertext">3 / 6</div>
+						<img src="/images/ncatgooglers.jpg" style="width:100%">
   </div>
 						<div class="mySlides fade">
-							<div class="numbertext">5 / 6</div>
-							<img src="/images/ghc.jpg" style="width:100%">
+							<div class="numbertext">4 / 6</div>
+							<img src="/images/shaylagooglebike.jpg" style="width:100%">
   </div>
 							<div class="mySlides fade">
-								<div class="numbertext">6 / 6</div>
-								<img src="/images/outsidegooglesign.jpg" style="width:100%">
+								<div class="numbertext">5 / 6</div>
+								<img src="/images/ghc.jpg" style="width:100%">
+  </div>
+								<div class="mySlides fade">
+									<div class="numbertext">6 / 6</div>
+									<img src="/images/outsidegooglesign.jpg" style="width:100%">
   </div>
 
-								<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-								<a class="next" onclick="plusSlides(1)">&#10095;</a>
-							</div>
+									<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+									<a class="next" onclick="plusSlides(1)">&#10095;</a>
+								</div>
 
 
-							<div style="text-align:center">
-								<span class="dot" onclick="currentSlide(1)"></span>
-								<span class="dot" onclick="currentSlide(2)"></span>
-								<span class="dot" onclick="currentSlide(3)"></span>
-								<span class="dot" onclick="currentSlide(4)"></span>
-								<span class="dot" onclick="currentSlide(5)"></span>
-								<span class="dot" onclick="currentSlide(6)"></span>
-							</div>
+								<div style="text-align:center">
+									<span class="dot" onclick="currentSlide(1)"></span>
+									<span class="dot" onclick="currentSlide(2)"></span>
+									<span class="dot" onclick="currentSlide(3)"></span>
+									<span class="dot" onclick="currentSlide(4)"></span>
+									<span class="dot" onclick="currentSlide(5)"></span>
+									<span class="dot" onclick="currentSlide(6)"></span>
+								</div>
 
 </body>
 <script>
