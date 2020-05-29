@@ -25,7 +25,7 @@ This is your portfolio page, so make it your own!
 */
 
 /**
- * Adds a random greeting to the page.
+ * Adds a random Movie Quote to the page.
  */
 function addRandomMovieQuote() {
     const movieQuotes =
