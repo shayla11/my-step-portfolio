@@ -35,6 +35,12 @@ function addRandomMovieQuote() {
     const movieQuote = movieQuotes[Math.floor(Math.random() * movieQuotes.length)];
 
     // Add it to the page.
-    const movieQuoteContainer = document.getElementById('movie-quote-container');
+    const movieQuoteContainer = document.getElementById('quote-container');
     movieQuoteContainer.innerText = movieQuote;
+}
+
+async function getRandomMessage() {
+    const response = await fetch('/data');
+    const message = await response.text();
+    document.getElementById('quote-container').innerText = message;
 }
