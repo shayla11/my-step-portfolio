@@ -13,13 +13,13 @@
 // limitations under the License.
 
 /**
- * Fetches a random quote from the server and adds it to the DOM.
+ * Fetches a random message from the server and adds it to the DOM.
  */
-function getRandomQuote() {
-  console.log('Fetching a random quote.');
+function getRandomMessage() {
+  console.log('Fetching a random message.');
 
   // The fetch() function returns a Promise because the request is asynchronous.
-  const responsePromise = fetch('/random-quote');
+  const responsePromise = fetch('/data');
 
   // When the request is complete, pass the response into handleResponse().
   responsePromise.then(handleResponse);
