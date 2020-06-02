@@ -38,3 +38,9 @@ function addRandomMovieQuote() {
     const movieQuoteContainer = document.getElementById('movie-quote-container');
     movieQuoteContainer.innerText = movieQuote;
 }
+
+function getRandomMessage() {
+  console.log('Fetching a random message.');
+  const responsePromise = fetch('/data');
+  responsePromise.then(handleResponse);
+}
