@@ -29,7 +29,17 @@ function addRandomMovieQuote() {
 
 async function getRandomMessage() {
     fetch('/data').then(response => response.json()).then((comments) => {
-        document.getElementById('quote-container').innerText = comments;
-        console.log(comments);
+        const messageList = document.getElementById('quote-container');
+        messageList.innerHTML = '';
+        messageList.appendChild(createListElement(comments[0]));
+        messageList.appendChild(createListElement(comments[1]));
+        messageList.appendChild(createListElement(comments[2]));
+        messageList.appendChild(createListElement(comments[3]));
     });
+}
+
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
 }
