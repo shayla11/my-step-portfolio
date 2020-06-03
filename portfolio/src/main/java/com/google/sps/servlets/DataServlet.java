@@ -51,5 +51,14 @@ public class DataServlet extends HttpServlet {
       String text = getParameter(request, "text-input", "");
       response.setContentType("text/html;");
       response.getWriter().println(text);
+      //response.sendRedirect("/index.html");
+  }
+
+  private String getParameter(HttpServletRequest request, String name, String defaultValue) {
+    String value = request.getParameter(name);
+    if (value == null) {
+      return defaultValue;
+    }
+    return value;
   }
 }
