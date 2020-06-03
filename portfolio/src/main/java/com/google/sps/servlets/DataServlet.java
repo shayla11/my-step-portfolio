@@ -45,4 +45,11 @@ public class DataServlet extends HttpServlet {
     response.setContentType("application/json;");
     response.getWriter().println(jsonComments);
   }
+
+  @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+      String text = getParameter(request, "text-input", "");
+      response.setContentType("text/html;");
+      response.getWriter().println(text);
+  }
 }
