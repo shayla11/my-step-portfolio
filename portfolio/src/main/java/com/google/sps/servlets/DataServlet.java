@@ -34,7 +34,7 @@ public class DataServlet extends HttpServlet {
         comments = new ArrayList<String>();
         comments.add("Why does your word insure me like its Aflac");
         comments.add("I know shortcuts cut short long runs");
-        comments.add("Livin' la vida without the loca");
+        comments.add("Livin la vida without the loca");
         comments.add("Front row? Duh bro we dont sit in nose bleeds");
     }
 

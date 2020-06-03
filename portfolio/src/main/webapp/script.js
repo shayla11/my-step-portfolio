@@ -29,7 +29,7 @@ function addRandomMovieQuote() {
 
 async function getRandomMessage() {
     fetch('/data').then(response => response.json()).then((comments) => {
+        document.getElementById('quote-container').innerText = comments;
         console.log(comments);
-
     });
 }
