@@ -31,15 +31,15 @@ async function getRandomMessage() {
     fetch('/data').then(response => response.json()).then((comments) => {
         const messageList = document.getElementById('quote-container');
         messageList.innerHTML = '';
-        messageList.appendChild(createListElement(comments[0]));
-        messageList.appendChild(createListElement(comments[1]));
-        messageList.appendChild(createListElement(comments[2]));
-        messageList.appendChild(createListElement(comments[3]));
+        var i;
+        for (i = 0; i < comments.length; i++) {
+            messageList.appendChild(createListElement(comments[i]));
+        }
     });
 }
 
 function createListElement(text) {
-  const liElement = document.createElement('li');
-  liElement.innerText = text;
-  return liElement;
+    const liElement = document.createElement('li');
+    liElement.innerText = text;
+    return liElement;
 }
