@@ -13,18 +13,6 @@
 // limitations under the License.
 
 /**
-Your goal this week is to customize your portfolio page. What that means is up to you, but here are a few ideas to get you started:
-Add a couple paragraphs explaining your background and what makes you you.
-Add a list of projects you've worked on.
-Add a link to your LinkedIn and GitHub profiles.
-Add images! Create a gallery of your favorite places, or selfies, or pictures of your pets.
-Add a couple paragraphs explaining what you enjoy photographing.
-Add some blog posts explaining one of your hidden talents.
-
-This is your portfolio page, so make it your own! 
-*/
-
-/**
  * Adds a random Movie Quote to the page.
  */
 function addRandomMovieQuote() {
@@ -40,7 +28,17 @@ function addRandomMovieQuote() {
 }
 
 async function getRandomMessage() {
-    const response = await fetch('/data');
-    const message = await response.text();
-    document.getElementById('quote-container').innerText = message;
+    fetch('/data').then(response => response.json()).then((comments) => {
+        const messageList = document.getElementById('quote-container');
+        messageList.innerHTML = '';
+        for (let i = 0; i < comments.length; i++) {
+            messageList.appendChild(createListElement(comments[i]));
+        }
+    });
+}
+
+function createListElement(text) {
+    const liElement = document.createElement('li');
+    liElement.innerText = text;
+    return liElement;
 }
