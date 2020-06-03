@@ -4,6 +4,10 @@
   width: 650px;
 }
 
+#center {
+  text-align: center; 
+}
+
 #quote-container {
   margin-top: 20px;
 }

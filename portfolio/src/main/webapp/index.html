@@ -58,8 +58,18 @@
 		<p>Click here to get a random movie quote or a Random Message:</p>
 		<button onclick="addRandomMovieQuote()">Movie Quote</button>
         <button onclick="getRandomMessage()">Fetch a message!</button>
-		<div id="quote-container"></div>
+		<div id="quote-container"></div>  
+        <br><br>
 	</div>
+    <div id="center">
+      <form action= "/data" method="POST">
+        <br><br>
+        <p>Write your comments here!</p>
+        <textarea type="text-input">Comment here!</textarea>
+        <br><br>
+        <input type="submit">
+      </form>
+    </div>
 </body>
 
 </html>
