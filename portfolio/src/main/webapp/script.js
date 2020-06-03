@@ -31,8 +31,7 @@ async function getRandomMessage() {
     fetch('/data').then(response => response.json()).then((comments) => {
         const messageList = document.getElementById('quote-container');
         messageList.innerHTML = '';
-        var i;
-        for (i = 0; i < comments.length; i++) {
+        for (let i = 0; i < comments.length; i++) {
             messageList.appendChild(createListElement(comments[i]));
         }
     });
