@@ -29,15 +29,6 @@ public class DataServlet extends HttpServlet {
 
     private ArrayList<String> comments = new ArrayList<String>();
 
-    //@Override
-    //public void init() {
-        //comments = new ArrayList<String>();
-        //comments.add("Why does your word insure me like its Aflac");
-        //comments.add("I know shortcuts cut short long runs");
-        //comments.add("Livin la vida without the loca");
-        //comments.add("Front row? Duh bro we dont sit in nose bleeds");
-    //}
-
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     Gson gson = new Gson();
