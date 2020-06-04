@@ -27,16 +27,16 @@ import com.google.gson.Gson;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
-    private ArrayList<String> comments;
+    private ArrayList<String> comments = new ArrayList<String>();
 
-    @Override
-    public void init() {
-        comments = new ArrayList<String>();
-        comments.add("Why does your word insure me like its Aflac");
-        comments.add("I know shortcuts cut short long runs");
-        comments.add("Livin la vida without the loca");
-        comments.add("Front row? Duh bro we dont sit in nose bleeds");
-    }
+    //@Override
+    //public void init() {
+        //comments = new ArrayList<String>();
+        //comments.add("Why does your word insure me like its Aflac");
+        //comments.add("I know shortcuts cut short long runs");
+        //comments.add("Livin la vida without the loca");
+        //comments.add("Front row? Duh bro we dont sit in nose bleeds");
+    //}
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -48,13 +48,16 @@ public class DataServlet extends HttpServlet {
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-      String text = getParameter(request, "text-input", "");
+      String text = getComment(request, "text-input", "");
+      comments.add(text);      
+    
       response.setContentType("text/html;");
-      response.getWriter().println(text);
-      //response.sendRedirect("/index.html");
+      response.getWriter().println(comments);
+      response.sendRedirect("/index.html");
   }
 
-  private String getParameter(HttpServletRequest request, String name, String defaultValue) {
+
+  private String getComment(HttpServletRequest request, String name, String defaultValue) {
     String value = request.getParameter(name);
     if (value == null) {
       return defaultValue;
