@@ -48,7 +48,7 @@ public class DataServlet extends HttpServlet {
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-      String text = getComment(request, "text-input", "");
+      String text = getParameter(request, "text-input", "");
       comments.add(text);      
     
       response.setContentType("text/html;");
@@ -57,7 +57,7 @@ public class DataServlet extends HttpServlet {
   }
 
 
-  private String getComment(HttpServletRequest request, String name, String defaultValue) {
+  private String getParameter(HttpServletRequest request, String name, String defaultValue) {
     String value = request.getParameter(name);
     if (value == null) {
       return defaultValue;
