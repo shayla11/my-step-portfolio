@@ -34,42 +34,42 @@ import com.google.sps.data.Task;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
-    private ArrayList < String > comments = new ArrayList < String > ();
+    private ArrayList <String> comments = new ArrayList <String>();
+    private ArrayList<Task> tasks = new ArrayList<Task>();
+
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Gson gson = new Gson();
 
         Query query = new Query("Task").addSort("timestamp", SortDirection.DESCENDING);
+
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
         PreparedQuery results = datastore.prepare(query);
-        ArrayList<Task> tasks = new ArrayList<Task>();
+
 	    for (Entity entity : results.asIterable()) {
-        	long id = entity.getKey().getId();
       	    String text = (String) entity.getProperty("text");
       	    long timestamp = (long) entity.getProperty("timestamp");
 
-      	    Task task = new Task(id, text, timestamp);
+      	    Task task = new Task(text, timestamp);
       	    tasks.add(task);
         }
 
-        String jsonComments = gson.toJson(comments);
         response.setContentType("application/json;");
-        response.getWriter().println(jsonComments);
+        response.getWriter().println(gson.toJson(tasks));
     }
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String text = getParameter(request, "text-input", "");
         long timestamp = System.currentTimeMillis();
+
         Entity taskEntity = new Entity("Task");
         taskEntity.setProperty("text", text);
         taskEntity.setProperty("timestamp", timestamp);
-        comments.add(text);
+
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
         datastore.put(taskEntity);
-        response.setContentType("text/html;");
-        response.getWriter().println(comments);
         response.sendRedirect("/index.html");
     }
 
