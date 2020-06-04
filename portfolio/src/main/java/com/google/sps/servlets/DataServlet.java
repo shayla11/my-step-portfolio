@@ -49,13 +49,11 @@ public class DataServlet extends HttpServlet {
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
       String text = getParameter(request, "text-input", "");
-      comments.add(text);      
-    
+      comments.add(text);  
       response.setContentType("text/html;");
       response.getWriter().println(comments);
       response.sendRedirect("/index.html");
   }
-
 
   private String getParameter(HttpServletRequest request, String name, String defaultValue) {
     String value = request.getParameter(name);
