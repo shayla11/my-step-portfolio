@@ -27,22 +27,27 @@ import com.google.gson.Gson;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
-    private ArrayList<String> comments;
+    private ArrayList < String > comments = new ArrayList < String > ();
 
     @Override
-    public void init() {
-        comments = new ArrayList<String>();
-        comments.add("Why does your word insure me like its Aflac");
-        comments.add("I know shortcuts cut short long runs");
-        comments.add("Livin la vida without the loca");
-        comments.add("Front row? Duh bro we dont sit in nose bleeds");
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        Gson gson = new Gson();
+        String jsonComments = gson.toJson(comments);
+        response.setContentType("application/json;");
+        response.getWriter().println(jsonComments);
     }
 
-  @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    Gson gson = new Gson();
-    String jsonComments = gson.toJson(comments);
-    response.setContentType("application/json;");
-    response.getWriter().println(jsonComments);
-  }
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String text = getParameter(request, "text-input", "");
+        comments.add(text);
+        response.setContentType("text/html;");
+        response.getWriter().println(comments);
+        response.sendRedirect("/index.html");
+    }
+
+    private String getParameter(HttpServletRequest request, String name, String defaultValue) {
+        String value = request.getParameter(name);
+        return (value == null) ? defaultValue : value; 
+    }
 }
