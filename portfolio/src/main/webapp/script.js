@@ -32,7 +32,7 @@ async function getRandomMessage() {
         const messageList = document.getElementById('quote-container');
         messageList.innerHTML = '';
         for (let i = 0; i < tasks.length; i++) {
-            messageList.appendChild(createListElement(tasks[i]));
+            messageList.appendChild(createListElement(tasks[i].text));
         }
     });
 }
