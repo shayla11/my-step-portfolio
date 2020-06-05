@@ -21,6 +21,7 @@ public final class Comment {
 
   public Comment(String text, long timestamp) {
     this.text = text;
+    //TODO: Implement usage of timestamp in future PR.
     this.timestamp = timestamp;
   }
 }
