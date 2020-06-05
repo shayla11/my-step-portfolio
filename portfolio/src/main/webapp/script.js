@@ -27,6 +27,9 @@ function addRandomMovieQuote() {
     movieQuoteContainer.innerText = movieQuote;
 }
 
+/**
+ * Loads comments that have been made from user input
+ */
 async function getComments() {
     fetch('/data').then(response => response.json()).then((tasks) => {
         const messageList = document.getElementById('comments-container');

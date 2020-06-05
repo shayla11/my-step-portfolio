@@ -30,7 +30,7 @@ import com.google.appengine.api.datastore.Entity;
 import com.google.sps.data.Comment;
 
 
-/** Servlet that returns some example content. TODO: modify this file to handle comments data */
+/** Servlet that returns some comments from the user. */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
