@@ -34,47 +34,40 @@ import com.google.sps.data.Task;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
-    private ArrayList <String> comments = new ArrayList <String>();
-    private ArrayList<Task> tasks = new ArrayList<Task>();
+  private ArrayList <String> comments = new ArrayList <String>();
+  private ArrayList<Task> tasks = new ArrayList<Task>();
 
+  @Override
+  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    Gson gson = new Gson();
+    Query query = new Query("Task").addSort("timestamp", SortDirection.DESCENDING);
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    PreparedQuery results = datastore.prepare(query);
 
-    @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        Gson gson = new Gson();
+	for (Entity entity : results.asIterable()) {
+      String text = (String) entity.getProperty("text");
+      long timestamp = (long) entity.getProperty("timestamp");
+      Task task = new Task(text, timestamp);
+      tasks.add(task);
+    }
+    response.setContentType("application/json;");
+    response.getWriter().println(gson.toJson(tasks));
+  }
 
-        Query query = new Query("Task").addSort("timestamp", SortDirection.DESCENDING);
-
-        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-        PreparedQuery results = datastore.prepare(query);
-
-	    for (Entity entity : results.asIterable()) {
-      	    String text = (String) entity.getProperty("text");
-      	    long timestamp = (long) entity.getProperty("timestamp");
-
-      	    Task task = new Task(text, timestamp);
-      	    tasks.add(task);
-        }
-
-        response.setContentType("application/json;");
-        response.getWriter().println(gson.toJson(tasks));
+  @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    String text = getParameter(request, "text-input", "");
+    long timestamp = System.currentTimeMillis();
+    Entity taskEntity = new Entity("Task");
+    taskEntity.setProperty("text", text);
+    taskEntity.setProperty("timestamp", timestamp);
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    datastore.put(taskEntity);
+    response.sendRedirect("/index.html");
     }
 
-    @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String text = getParameter(request, "text-input", "");
-        long timestamp = System.currentTimeMillis();
-
-        Entity taskEntity = new Entity("Task");
-        taskEntity.setProperty("text", text);
-        taskEntity.setProperty("timestamp", timestamp);
-
-        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-        datastore.put(taskEntity);
-        response.sendRedirect("/index.html");
-    }
-
-    private String getParameter(HttpServletRequest request, String name, String defaultValue) {
-        String value = request.getParameter(name);
-        return (value == null) ? defaultValue : value; 
-    }
+  private String getParameter(HttpServletRequest request, String name, String defaultValue) {
+    String value = request.getParameter(name);
+    return (value == null) ? defaultValue : value; 
+  }
 }
