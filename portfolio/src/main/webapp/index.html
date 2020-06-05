@@ -55,19 +55,20 @@
 		<p> Howdy! My name is Shayla Sexton and This is my STEP portfolio!</p>
 		<p> In this portfolio you can find <a href="projects.html"><b>Projects</b></a> that i'm working on, my
 			<b>Blog</b>, and of course an <a href="about.html"><b>About Me</b></a> page! </p>
-		<p>Click here to get a random movie quote or a Random Message:</p>
+		<p>Click here to get a random movie quote:</p>
 		<button onclick="addRandomMovieQuote()">Movie Quote</button>
-        <button onclick="getRandomMessage()">Fetch Comments</button>
-		<div id="quote-container"></div>  
+        <button onclick="getRandomMessage()">See Comments</button>
+		<div id="quote-container"></div> 
+        <div id="comments-container"></div> 
         <br><br>
 	</div>
     <div id="center">
       <form action="/data" method="POST">
-        <br><br>
+        <br><br><br>
         <p>Have feedback? Write your comments here!</p>
         <textarea name="text-input">Comment here!</textarea>
         <br><br>
-        <input type="submit"/>
+        <input type="submit"></input>
       </form>
     </div>
 </body>

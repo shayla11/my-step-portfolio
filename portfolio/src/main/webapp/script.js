@@ -28,11 +28,11 @@ function addRandomMovieQuote() {
 }
 
 async function getRandomMessage() {
-    fetch('/data').then(response => response.json()).then((comments) => {
-        const messageList = document.getElementById('quote-container');
+    fetch('/data').then(response => response.json()).then((tasks) => {
+        const messageList = document.getElementById('comments-container');
         messageList.innerHTML = '';
-        for (let i = 0; i < comments.length; i++) {
-            messageList.appendChild(createListElement(comments[i]));
+        for (let i = 0; i < tasks.length; i++) {
+            messageList.appendChild(createListElement(tasks[i].text));
         }
     });
 }
