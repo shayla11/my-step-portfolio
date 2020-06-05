@@ -11,3 +11,8 @@
 #quote-container {
   margin-top: 20px;
 }
+
+#comments-container {
+    margin-top: 20%;
+    text-align: center;
+}
