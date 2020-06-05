@@ -27,7 +27,7 @@ function addRandomMovieQuote() {
     movieQuoteContainer.innerText = movieQuote;
 }
 
-async function getRandomMessage() {
+async function getComments() {
     fetch('/data').then(response => response.json()).then((tasks) => {
         const messageList = document.getElementById('comments-container');
         messageList.innerHTML = '';
@@ -35,10 +35,14 @@ async function getRandomMessage() {
             messageList.appendChild(createListElement(tasks[i].text));
         }
     });
+
+    while (messageList.firstChild) {
+    messageList.removeChild(commentList.firstChild);
+  }
 }
 
 function createListElement(text) {
-    const liElement = document.createElement('li');
+    const liElement = document.createElement('li-comments');
     liElement.innerText = text;
     return liElement;
 }

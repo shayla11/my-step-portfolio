@@ -15,6 +15,14 @@
 			float: left;
 		}
 
+        li-comments {
+    	    float: left;
+            clear: left;
+            position: relative;
+            padding: 10px;
+            text-align: center;
+	    }
+
 		li a {
 			display: block;
 			color: black;
@@ -57,9 +65,7 @@
 			<b>Blog</b>, and of course an <a href="about.html"><b>About Me</b></a> page! </p>
 		<p>Click here to get a random movie quote:</p>
 		<button onclick="addRandomMovieQuote()">Movie Quote</button>
-        <button onclick="getRandomMessage()">See Comments</button>
 		<div id="quote-container"></div> 
-        <div id="comments-container"></div> 
         <br><br>
 	</div>
     <div id="center">
@@ -69,7 +75,12 @@
         <textarea name="text-input">Comment here!</textarea>
         <br><br>
         <input type="submit"></input>
+        <br><br>
       </form>
+    </div>
+    <div id="center">
+      <button onclick="getComments()">See Comments</button>
+      <div id="comments-container"></div> 
     </div>
 </body>
 
