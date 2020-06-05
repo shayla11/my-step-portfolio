@@ -41,6 +41,8 @@ async function getComments() {
   }
 }
 
+//TODO: Implement a method to delete comments
+
 function createListElement(text) {
     const liElement = document.createElement('li-comments');
     liElement.innerText = text;
