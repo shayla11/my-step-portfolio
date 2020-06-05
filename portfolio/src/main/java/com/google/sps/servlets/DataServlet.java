@@ -27,7 +27,7 @@ import com.google.gson.Gson;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
-import com.google.sps.data.Task;
+import com.google.sps.data.Comment;
 
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
@@ -35,7 +35,7 @@ import com.google.sps.data.Task;
 public class DataServlet extends HttpServlet {
 
   private ArrayList <String> comments = new ArrayList <String>();
-  private ArrayList<Task> tasks = new ArrayList<Task>();
+  private ArrayList<Comment> tasks = new ArrayList<Comment>();
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -47,7 +47,7 @@ public class DataServlet extends HttpServlet {
 	for (Entity entity : results.asIterable()) {
       String text = (String) entity.getProperty("text");
       long timestamp = (long) entity.getProperty("timestamp");
-      Task task = new Task(text, timestamp);
+      Comment task = new Comment(text, timestamp);
       tasks.add(task);
     }
     response.setContentType("application/json;");
