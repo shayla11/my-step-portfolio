@@ -31,12 +31,12 @@ p {
 .grid-container {
 	display: grid;
 	grid-template-areas:
-		'image project project project project project '
+		'image project project project project project'
 		'image footer footer footer footer footer';
 	padding: 25px;
 }
 
-.grid-container>div {
+.grid-container > div {
 	font-size: 20px;
 }
 

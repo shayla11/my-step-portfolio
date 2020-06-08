@@ -5,7 +5,7 @@
 }
 
 #center {
-  text-align: center; 
+  text-align: center;
 }
 
 #quote-container {
@@ -13,50 +13,50 @@
 }
 
 #comment-container {
-    margin-top: 20px;
-    text-align: center;
-    display:table;
-    margin: 0 auto;
+  margin-top: 20px;
+  text-align: center;
+  display: table;
+  margin: 0 auto;
 }
 
 ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	background-color: #e8eaff;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #e8eaff;
 }
 
 li {
-	float: left;
+  float: left;
 }
 
 li-comment {
-    name: comment;
-	float: left;
-	clear: left;
-	position: relative;
-	padding: 10px;
-	text-align: center;
+  name: comment;
+  float: left;
+  clear: left;
+  position: relative;
+  padding: 10px;
+  text-align: center;
 }
 
 li a {
-	display: block;
-	color: black;
-	text-align: center;
-	padding: 14px 16px;
-	text-decoration: none;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
 li a:hover {
-	background-color: #a0aafc;
+  background-color: #a0aafc;
 }
 
 img {
-	float: left;
-	margin-right: 20px;
+  float: left;
+  margin-right: 20px;
 }
 
 body {
-	background-color: #f8f9ff;
+  background-color: #f8f9ff;
 }
