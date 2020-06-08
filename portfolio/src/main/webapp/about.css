@@ -59,7 +59,7 @@ p {
 }
  
 .bgcolor {
-    background-color: #E7E7FE
+    background-color: #e7e7fe
 }
  
 .connectlogo {
@@ -129,7 +129,7 @@ ul {
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	background-color: #E8EAFF;
+	background-color: #e8eaff;
 }
 
 li {
@@ -145,7 +145,7 @@ li a {
 }
 
 li a:hover {
-	background-color: #A0AAFC;
+	background-color: #a0aafc;
 }
 
 body {
