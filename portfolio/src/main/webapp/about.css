@@ -136,15 +136,6 @@ li {
 	float: left;
 }
 
-li-comment {
-    name: comment;
-	float: left;
-	clear: left;
-	position: relative;
-	padding: 10px;
-	text-align: center;
-}
-
 li a {
 	display: block;
 	color: black;
