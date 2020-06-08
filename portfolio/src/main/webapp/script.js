@@ -32,7 +32,7 @@ function addRandomMovieQuote() {
  */
 async function getComments() {
     fetch('/data').then(response => response.json()).then((tasks) => {
-        const messageList = document.getElementById('comments-container');
+        const messageList = document.getElementById('comment-container');
         messageList.innerHTML = '';
         for (let i = 0; i < tasks.length; i++) {
             messageList.appendChild(createListElement(tasks[i].text));
@@ -43,7 +43,7 @@ async function getComments() {
 //TODO: Implement a method to delete comments. Includes deletion of duplicates
 
 function createListElement(text) {
-    const liElement = document.createElement('li-comments');
+    const liElement = document.createElement('li-comment');
     liElement.innerText = text;
     return liElement;
 }
