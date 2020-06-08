@@ -44,6 +44,7 @@ async function getComments() {
 
 function createListElement(text) {
     const liElement = document.createElement('li-comment');
+    liElement.className = "comment";
     liElement.innerText = text;
     return liElement;
 }
