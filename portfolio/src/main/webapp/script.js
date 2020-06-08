@@ -27,18 +27,24 @@ function addRandomMovieQuote() {
     movieQuoteContainer.innerText = movieQuote;
 }
 
-async function getRandomMessage() {
+/**
+ * Loads comments that have been made from user input
+ */
+async function getComments() {
     fetch('/data').then(response => response.json()).then((tasks) => {
-        const messageList = document.getElementById('comments-container');
+        const messageList = document.getElementById('comment-container');
         messageList.innerHTML = '';
         for (let i = 0; i < tasks.length; i++) {
             messageList.appendChild(createListElement(tasks[i].text));
         }
     });
-}
+  }
+
+//TODO: Implement a method to delete comments. Includes deletion of duplicates
 
 function createListElement(text) {
-    const liElement = document.createElement('li');
+    const liElement = document.createElement('li-comment');
+    liElement.className = "comment";
     liElement.innerText = text;
     return liElement;
 }

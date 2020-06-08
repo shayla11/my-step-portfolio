@@ -12,7 +12,9 @@
   margin-top: 20px;
 }
 
-#comments-container {
-    margin-top: 20%;
+#comment-container {
+    margin-top: 20px;
     text-align: center;
+    display:table;
+    margin: 0 auto;
 }

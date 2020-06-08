@@ -15,6 +15,15 @@
 			float: left;
 		}
 
+		li-comment {
+            name: comment;
+			float: left;
+			clear: left;
+			position: relative;
+			padding: 10px;
+			text-align: center;
+		}
+
 		li a {
 			display: block;
 			color: black;
@@ -32,9 +41,9 @@
 			margin-right: 20px;
 		}
 
-        body {
+		body {
 			background-color: #f8f9ff;
-        }
+		}
 	</style>
 	<meta charset="UTF-8">
 	<title>My Portfolio</title>
@@ -57,20 +66,23 @@
 			<b>Blog</b>, and of course an <a href="about.html"><b>About Me</b></a> page! </p>
 		<p>Click here to get a random movie quote:</p>
 		<button onclick="addRandomMovieQuote()">Movie Quote</button>
-        <button onclick="getRandomMessage()">See Comments</button>
-		<div id="quote-container"></div> 
-        <div id="comments-container"></div> 
-        <br><br>
+		<div id="quote-container"></div>
+		<br><br>
 	</div>
-    <div id="center">
-      <form action="/data" method="POST">
-        <br><br><br>
-        <p>Have feedback? Write your comments here!</p>
-        <textarea name="text-input">Comment here!</textarea>
-        <br><br>
-        <input type="submit"></input>
+		<div id="center">
+			<form action="/data" method="POST">
+				<br><br><br>
+				<p>Have feedback? Write your comments here!</p>
+	            <textarea name="text-input" placeholder="Comment here!"></textarea>
+				<br><br>
+				<input type="submit"></input>
+				<br><br>
       </form>
-    </div>
+		</div>
+		<div id="center">
+			<button onclick="getComments()">See Comments</button>
+			<div id="comment-container"></div>
+		</div>
 </body>
 
 </html>
