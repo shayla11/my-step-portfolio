@@ -9,37 +9,37 @@
 </head>
 
 <body>
-	<ul>
-		<li><a href="index.html">Home</a></li>
-		<li><a href="about.html">About Me</a></li>
-		<li><a href="projects.html">Projects</a></li>
-		<li><a href="#Blog">Blog</a></li>
-	</ul>
-	<div id="content">
-		<h1>Shayla's Portfolio</h1>
-		<img src="/images/me.jpg" alt="Picture of Shayla" width="300" height="300">
-		<p> Howdy! My name is Shayla Sexton and This is my STEP portfolio!</p>
-		<p> In this portfolio you can find <a href="projects.html"><b>Projects</b></a> that i'm working on, my
-			<b>Blog</b>, and of course an <a href="about.html"><b>About Me</b></a> page! </p>
-		<p>Click here to get a random movie quote:</p>
-		<button onclick="addRandomMovieQuote()">Movie Quote</button>
-		<div id="quote-container"></div>
-		<br><br>
-	</div>
-		<div id="center">
-			<form action="/data" method="POST">
-				<br><br><br>
-				<p>Have feedback? Write your comments here!</p>
-	            <textarea name="text-input" placeholder="Comment here!"></textarea>
-				<br><br>
-				<input type="submit"></input>
-				<br><br>
-      </form>
-   </div>
-   <div id="center">
-      <button onclick="getComments()">See Comments</button>
-      <div id="comment-container"></div>
-   </div>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Me</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="#Blog">Blog</a></li>
+  </ul>
+  <div id="content">
+    <h1 style="font-size:80px;">Shayla's Portfolio</h1>
+    <img src="/images/googleprofilepic.jpg" alt="Picture of Shayla" width="300" height="300">
+    <p> Howdy! My name is Shayla Sexton and This is my STEP portfolio!</p>
+    <p> In this portfolio you can find <a href="projects.html"><b>Projects</b></a> that i'm working on, my
+        <b>Blog</b>, and of course an <a href="about.html"><b>About Me</b></a> page! </p>
+    <p>Click here to get a random movie quote:</p>
+    <button onclick="addRandomMovieQuote()">Movie Quote</button>
+    <div id="quote-container"></div>
+    <br><br>
+  </div>
+  <div id="center">
+    <form action="/data" method="POST">
+      <br><br><br>
+      <p>Have feedback? Write your comments here!</p>
+      <textarea name="text-input" placeholder="Comment here!"></textarea>
+      <br><br>
+      <input type="submit"></input>
+      <br><br>
+    </form>
+  </div>
+  <div id="center">
+    <button onclick="getComments()">See Comments</button>
+    <div id="comment-container"></div>
+  </div>
 </body>
 
 </html>
