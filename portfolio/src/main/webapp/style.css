@@ -18,3 +18,45 @@
     display:table;
     margin: 0 auto;
 }
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #E8EAFF;
+}
+
+li {
+	float: left;
+}
+
+li-comment {
+    name: comment;
+	float: left;
+	clear: left;
+	position: relative;
+	padding: 10px;
+	text-align: center;
+}
+
+li a {
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+li a:hover {
+	background-color: #A0AAFC;
+}
+
+img {
+	float: left;
+	margin-right: 20px;
+}
+
+body {
+	background-color: #f8f9ff;
+}
