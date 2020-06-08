@@ -38,13 +38,9 @@ async function getComments() {
             messageList.appendChild(createListElement(tasks[i].text));
         }
     });
-
-    while (messageList.firstChild) {
-    messageList.removeChild(commentList.firstChild);
   }
-}
 
-//TODO: Implement a method to delete comments
+//TODO: Implement a method to delete comments. Includes deletion of duplicates
 
 function createListElement(text) {
     const liElement = document.createElement('li-comments');
