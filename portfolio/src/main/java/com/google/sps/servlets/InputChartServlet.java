@@ -41,9 +41,9 @@ public class InputChartServlet extends HttpServlet {
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     String spider = request.getParameter("spiderman");
-    int currentVotes = colorVotes.containsKey(spider) ? spiderVotes.get(spider) : 0;
+    int currentVotes = spiderVotes.containsKey(spider) ? spiderVotes.get(spider) : 0;
     spiderVotes.put(spider, currentVotes + 1);
 
-    response.sendRedirect("/index.html");
+    response.sendRedirect("/blog.html");
   }
 }

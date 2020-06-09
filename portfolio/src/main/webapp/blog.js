@@ -18,7 +18,7 @@ google.charts.setOnLoadCallback(drawChart);
 
 /** Creates a chart and adds it to the page. */
 function drawChart() {
-    const data = new google.visualization.arrayToDataTable([
+    const colData = new google.visualization.arrayToDataTable([
         ['Game', 'Hours', { role: 'annotation' }],
         ['Animal Crossing: New Leaf', 415, '415'],
         ['Fantasy Life', 278, '278'],
@@ -31,7 +31,7 @@ function drawChart() {
         ['Tetris 99', 25, '25']
     ]);
 
-    const options = {
+    const colOptions = {
         'title': 'Play Activity',
         'width': 700,
         'height': 700,
@@ -39,7 +39,7 @@ function drawChart() {
         'vAxis': { title: 'Hours Played' }
     };
 
-    const chart = new google.visualization.ColumnChart(
+    const colChart = new google.visualization.ColumnChart(
         document.getElementById('chart-container'));
-    chart.draw(data, options);
+    colChart.draw(colData, colOptions);
 }
