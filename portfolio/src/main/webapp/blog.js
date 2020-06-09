@@ -58,12 +58,13 @@ function drawInputChart() {
             const pieOptions = {
                 'title': 'The Best Spiderman',
                 'width': 600,
-                'height': 500
+                'height': 500,
+                is3d: true
             };
 
             const pieChart = new google.visualization.PieChart(
-                document.getElementById('chart-container'));
-            colChart.draw(pieData, pieOptions);
+                document.getElementById('piechart'));
+            pieChart.draw(pieData, pieOptions);
 
         });
 }
