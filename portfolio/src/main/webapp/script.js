@@ -28,7 +28,8 @@ function addRandomMovieQuote() {
             'Do. or do not. There is not try. - Star Wars: The Empire Strikes Back',
             'All bubble-blowing babies will be beaten senseless by every able-bodied patron in the bar - The Spongebob Squarepants Movie',
             'It is not a donut hole at all, but a smaller donut with its own hole - Knives Out',
-            'Evaporate tall person! - High School Musical'];
+            'Evaporate tall person! - High School Musical',
+            'If we are going to perform Inception, we need imagination. - Inception'];
 
     // Pick a random greeting.
     const movieQuote = movieQuotes[Math.floor(Math.random() * movieQuotes.length)];
