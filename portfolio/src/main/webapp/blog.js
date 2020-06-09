@@ -32,7 +32,7 @@ function drawChart() {
     ]);
 
     const options = {
-        'title': 'Shaylas Play Activity',
+        'title': 'Play Activity',
         'width': 700,
         'height': 700,
         'hAxis': { title: 'Games' },
