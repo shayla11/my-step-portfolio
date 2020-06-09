@@ -22,7 +22,7 @@ function addRandomMovieQuote() {
             'This guy is a few tacos short of a combination plate. - Good Burger',
             'They carried my mothers groceries outta respect. - Goodfellas',
             'Why dont you make like a tree and get outta here! - Back to the Future II',
-            'No capes! - The Increibles',
+            'No capes! - The Incredibles',
             'Put that thing back where it came from or so help me! - Monsters Inc.',
             'This isnt flying. Its falling.. with style! - Toy Story',
             'Do. or do not. There is not try. - Star Wars: The Empire Strikes Back',
