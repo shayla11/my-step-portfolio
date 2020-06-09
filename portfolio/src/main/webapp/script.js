@@ -17,7 +17,8 @@
  */
 function addRandomMovieQuote() {
     const movieQuotes =
-        ['I dont know how to make paint! - Diary of a Wimpy Kid:Roderick Rules', 'Yo Adrian! - Rocky',
+        ['I dont know how to make paint! - Diary of a Wimpy Kid:Roderick Rules',
+            'Yo Adrian! - Rocky',
             'This guy is a few tacos short of a combination plate. - Good Burger',
             'They carried my mothers groceries outta respect. - Goodfellas',
             'Why dont you make like a tree and get outta here! - Back to the Future II',
