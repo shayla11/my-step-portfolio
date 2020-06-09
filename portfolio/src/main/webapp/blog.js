@@ -18,7 +18,7 @@ google.charts.setOnLoadCallback(drawChart);
 
 /** Creates a chart and adds it to the page. */
 function drawChart() {
-    const colData = new google.visualization.arrayToDataTable([
+    const data = new google.visualization.arrayToDataTable([
         ['Game', 'Hours', { role: 'annotation' }],
         ['Animal Crossing: New Leaf', 415, '415'],
         ['Fantasy Life', 278, '278'],
@@ -31,7 +31,7 @@ function drawChart() {
         ['Tetris 99', 25, '25']
     ]);
 
-    const colOptions = {
+    const options = {
         'title': 'Play Activity',
         'width': 700,
         'height': 700,
@@ -41,5 +41,29 @@ function drawChart() {
 
     const colChart = new google.visualization.ColumnChart(
         document.getElementById('chart-container'));
-    colChart.draw(colData, colOptions);
+    colChart.draw(data, options);
+}
+
+function drawInputChart() {
+
+    fetch('/spider-data').then(response => response.json())
+        .then((spiderVotes) => {
+            const pieData = new google.visualization.DataTable();
+            data.addColumn('string', 'spiderman');
+            data.addColumn('number', 'Votes');
+            Object.keys(spiderVotes).forEach((spider) => {
+                data.addRow([spider, spiderVotes[spider]]);
+            });
+
+            const pieOptions = {
+                'title': 'The Best Spiderman',
+                'width': 600,
+                'height': 500
+            };
+
+            const pieChart = new google.visualization.PieChart(
+                document.getElementById('chart-container'));
+            colChart.draw(pieData, pieOptions);
+
+        });
 }
