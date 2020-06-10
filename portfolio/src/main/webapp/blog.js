@@ -18,7 +18,7 @@ google.charts.setOnLoadCallback(drawChart);
 google.charts.setOnLoadCallback(drawInputChart);
 
 /** Creates a chart and adds it to the page. */
-function drawChart() {
+function drawGameChart() {
     const data = new google.visualization.arrayToDataTable([
         ['Game', 'Hours', { role: 'annotation' }],
         ['Animal Crossing: New Leaf', 415, '415'],
@@ -65,4 +65,9 @@ function drawInputChart() {
                 document.getElementById('piechart'));
             chart.draw(data, options);
         });
+}
+
+function drawAllCharts() {
+    drawInputChart();
+    drawGameChart();
 }
