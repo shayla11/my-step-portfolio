@@ -62,7 +62,7 @@ function drawInputChart() {
             };
 
             const chart = new google.visualization.PieChart(
-                document.getElementById('piechart'));
+                document.getElementById('spider-piechart-container'));
             chart.draw(data, options);
         });
 }
