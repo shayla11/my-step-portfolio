@@ -40,13 +40,12 @@ function drawChart() {
         'vAxis': { title: 'Hours Played' }
     };
 
-    const colChart = new google.visualization.ColumnChart(
+    const chart = new google.visualization.ColumnChart(
         document.getElementById('chart-container'));
-    colChart.draw(data, options);
+    chart.draw(data, options);
 }
 
 function drawInputChart() {
-
     fetch('/spider-data').then(response => response.json())
         .then((spiderVotes) => {
             const data = new google.visualization.DataTable();

@@ -43,7 +43,6 @@ public class InputChartServlet extends HttpServlet {
     String spider = request.getParameter("spiderman");
     int currentVotes = spiderVotes.containsKey(spider) ? spiderVotes.get(spider) : 0;
     spiderVotes.put(spider, currentVotes + 1);
-
     response.sendRedirect("/blog.html");
   }
 }
