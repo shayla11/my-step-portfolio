@@ -27,10 +27,10 @@ body {
   font-family: Helvetica;
 }
 
-#section {
+.section {
   margin: 2rem 2rem 2rem 2rem;
   padding: 2rem;
-  background-color:#e8eaff;
+  background-color: #e8eaff;
   height: fit-content;
   width: fit-content;
   border-radius: 8px;
