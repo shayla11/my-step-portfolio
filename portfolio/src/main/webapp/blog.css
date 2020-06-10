@@ -27,11 +27,21 @@ body {
   font-family: Helvetica;
 }
 
-.section {
+.left-section {
+  float: left;
   margin: 2rem 2rem 2rem 2rem;
   padding: 2rem;
   background-color: #e8eaff;
   height: fit-content;
   width: fit-content;
+  border-radius: 8px;
+}
+.right-section {
+  float: right;
+  margin: 2rem 2rem 2rem 2rem;
+  padding: 2rem;
+  background-color: #e8eaff;
+  height: fit-content;
+  width: 50%;
   border-radius: 8px;
 }

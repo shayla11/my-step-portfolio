@@ -34,8 +34,8 @@ function drawChart() {
 
     const options = {
         'title': 'Play Activity',
-        'width': 700,
-        'height': 700,
+        'width': 650,
+        'height': 650,
         'hAxis': { title: 'Games' },
         'vAxis': { title: 'Hours Played' }
     };
