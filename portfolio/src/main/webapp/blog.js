@@ -15,6 +15,7 @@
 
 google.charts.load('current', { 'packages': ['corechart'] });
 google.charts.setOnLoadCallback(drawChart);
+google.charts.setOnLoadCallback(drawInputChart);
 
 /** Creates a chart and adds it to the page. */
 function drawChart() {
@@ -48,23 +49,22 @@ function drawInputChart() {
 
     fetch('/spider-data').then(response => response.json())
         .then((spiderVotes) => {
-            const pieData = new google.visualization.DataTable();
+            const data = new google.visualization.DataTable();
             data.addColumn('string', 'spiderman');
             data.addColumn('number', 'Votes');
             Object.keys(spiderVotes).forEach((spider) => {
                 data.addRow([spider, spiderVotes[spider]]);
             });
 
-            const pieOptions = {
+            const options = {
                 'title': 'The Best Spiderman',
                 'width': 600,
                 'height': 500,
                 is3d: true
             };
 
-            const pieChart = new google.visualization.PieChart(
+            const chart = new google.visualization.PieChart(
                 document.getElementById('piechart'));
-            pieChart.draw(pieData, pieOptions);
-
+            chart.draw(data, options);
         });
 }
