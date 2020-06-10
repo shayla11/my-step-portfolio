@@ -60,7 +60,6 @@ function drawInputChart() {
                 'title': 'The Best Spiderman',
                 'width': 600,
                 'height': 500,
-                is3d: true
             };
 
             const chart = new google.visualization.PieChart(
