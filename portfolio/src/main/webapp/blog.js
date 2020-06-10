@@ -13,27 +13,33 @@
 // limitations under the License.
 
 
-google.charts.load('current', {'packages':['corechart']});
+google.charts.load('current', { 'packages': ['corechart'] });
 google.charts.setOnLoadCallback(drawChart);
 
 /** Creates a chart and adds it to the page. */
 function drawChart() {
-  const data = new google.visualization.DataTable();
-  data.addColumn('string', 'Animal');
-  data.addColumn('number', 'Count');
-        data.addRows([
-          ['Lions', 10],
-          ['Tigers', 5],
-          ['Bears', 15]
-        ]);
+    const data = new google.visualization.arrayToDataTable([
+        ['Game', 'Hours', { role: 'annotation' }],
+        ['Animal Crossing: New Leaf', 415, '415'],
+        ['Fantasy Life', 278, '278'],
+        ['Animal Crossing: New Horizons', 190, '190'],
+        ['Stardew Valley', 105, '105'],
+        ['Mario Kart 7', 79, '79'],
+        ['Splatoon 2', 65, '65'],
+        ['Paper Mario: Sticker Star', 61, '61'],
+        ['Lego Rock Band DS', 50, '50'],
+        ['Tetris 99', 25, '25']
+    ]);
 
-  const options = {
-    'title': 'Zoo Animals',
-    'width':500,
-    'height':400
-  };
+    const options = {
+        'title': 'Play Activity',
+        'width': 700,
+        'height': 700,
+        'hAxis': { title: 'Games' },
+        'vAxis': { title: 'Hours Played' }
+    };
 
-  const chart = new google.visualization.PieChart(
-      document.getElementById('chart-container'));
-  chart.draw(data, options);
+    const chart = new google.visualization.ColumnChart(
+        document.getElementById('chart-container'));
+    chart.draw(data, options);
 }
