@@ -41,7 +41,7 @@ function drawGameChart() {
     };
 
     const chart = new google.visualization.ColumnChart(
-        document.getElementById('game-chart-container'));
+        document.getElementById('game-barchart-container'));
     chart.draw(data, options);
 }
 
