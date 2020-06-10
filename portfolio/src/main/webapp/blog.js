@@ -14,7 +14,7 @@
 
 
 google.charts.load('current', { 'packages': ['corechart'] });
-google.charts.setOnLoadCallback(drawChart);
+google.charts.setOnLoadCallback(drawGameChart);
 google.charts.setOnLoadCallback(drawInputChart);
 
 /** Creates a chart and adds it to the page. */
@@ -41,7 +41,7 @@ function drawGameChart() {
     };
 
     const chart = new google.visualization.ColumnChart(
-        document.getElementById('chart-container'));
+        document.getElementById('game-chart-container'));
     chart.draw(data, options);
 }
 
