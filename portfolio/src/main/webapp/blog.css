@@ -27,7 +27,7 @@ body {
   font-family: Helvetica;
 }
 
-#section {
+.section {
   margin: 2rem 2rem 2rem 2rem;
   padding: 2rem;
   background-color: #e8eaff;
