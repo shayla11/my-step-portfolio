@@ -14,10 +14,11 @@
 
 
 google.charts.load('current', { 'packages': ['corechart'] });
-google.charts.setOnLoadCallback(drawChart);
+google.charts.setOnLoadCallback(drawGameChart);
+google.charts.setOnLoadCallback(drawInputChart);
 
 /** Creates a chart and adds it to the page. */
-function drawChart() {
+function drawGameChart() {
     const data = new google.visualization.arrayToDataTable([
         ['Game', 'Hours', { role: 'annotation' }],
         ['Animal Crossing: New Leaf', 415, '415'],
@@ -33,13 +34,40 @@ function drawChart() {
 
     const options = {
         'title': 'Play Activity',
-        'width': 700,
-        'height': 700,
+        'width': 650,
+        'height': 650,
         'hAxis': { title: 'Games' },
         'vAxis': { title: 'Hours Played' }
     };
 
     const chart = new google.visualization.ColumnChart(
-        document.getElementById('chart-container'));
+        document.getElementById('game-barchart-container'));
     chart.draw(data, options);
+}
+
+function drawInputChart() {
+    fetch('/spider-data').then(response => response.json())
+        .then((spiderVotes) => {
+            const data = new google.visualization.DataTable();
+            data.addColumn('string', 'spiderman');
+            data.addColumn('number', 'Votes');
+            Object.keys(spiderVotes).forEach((spider) => {
+                data.addRow([spider, spiderVotes[spider]]);
+            });
+
+            const options = {
+                'title': 'The Best Spiderman',
+                'width': 600,
+                'height': 500,
+            };
+
+            const chart = new google.visualization.PieChart(
+                document.getElementById('spider-piechart-container'));
+            chart.draw(data, options);
+        });
+}
+
+function drawAllCharts() {
+    drawInputChart();
+    drawGameChart();
 }
