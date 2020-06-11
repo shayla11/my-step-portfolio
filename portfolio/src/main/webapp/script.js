@@ -43,17 +43,13 @@ function addRandomMovieQuote() {
  * Loads comments that have been made from user input
  */
 function getComments() {
-
-
     fetch('/data').then(response => response.json()).then((tasks) => {
         const messageList = document.getElementById('comment-container');
         messageList.innerHTML = '';
-
         for (let i = 0; i < tasks.length; i++) {
             messageList.appendChild(createListElement(tasks[i].name + '  :      ' + tasks[i].text));
         }
     });
-
 }
 
 function createListElement(fullComment) {
@@ -64,8 +60,8 @@ function createListElement(fullComment) {
 }
 
 function deleteComments() {
-  const messageList = document.getElementById("comment-container");
-  while (messageList.firstChild) {
-    messageList.removeChild(messageList.firstElementChild);
-  }
+    const messageList = document.getElementById("comment-container");
+    while (messageList.firstChild) {
+        messageList.removeChild(messageList.firstElementChild);
+    }
 }

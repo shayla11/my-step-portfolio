@@ -26,27 +26,23 @@
     <div id="quote-container"></div>
     <br><br><br><br>
   </div>
-
   <div id="content">
-        <div class="section">
-
-    <form action="/data" method="POST">
-      
-      <p>Write your comments here!</p>
-      <textarea name="name-input" placeholder="Name" rows="1" cols="20" required></textarea>
-      <br>
-      <textarea name="text-input" placeholder="Comment here!" rows="3" cols="50"></textarea>
-      <br><br>
-      <input type="submit"></input>
-      <br><br>
-    </form>
-  </div>
-
-  <div id="center">
-    <button onclick="getComments()">See Comments</button>
-    <button onclick="deleteComments()">Delete Comments</button>
-    <div id="comment-container"></div>
-  </div>
+    <div class="section">
+      <form action="/data" method="POST">
+        <p>Write your comments here!</p>
+        <textarea name="name-input" placeholder="Name" rows="1" cols="20" required></textarea>
+        <br>
+        <textarea name="text-input" placeholder="Comment here!" rows="3" cols="50"></textarea>
+        <br><br>
+        <input type="submit"></input>
+        <br><br>
+      </form>
+    </div>
+    <div id="center">
+      <button onclick="getComments()">See Comments</button>
+      <button onclick="deleteComments()">Delete Comments</button>
+      <div id="comment-container"></div>
+    </div>
   </div>
 </body>
 
