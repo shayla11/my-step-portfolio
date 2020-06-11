@@ -64,8 +64,8 @@ function createListElement(fullComment) {
 }
 
 function deleteComments() {
-//call correct fetch that can delete data
+  const messageList = document.getElementById("comment-container");
   while (messageList.firstChild) {
-    messageList.removeChild(messageList.firstChild);
+    messageList.removeChild(messageList.firstElementChild);
   }
 }
