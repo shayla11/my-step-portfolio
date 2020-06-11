@@ -36,14 +36,6 @@ li {
   float: left;
 }
 
-li-comment {
-  float: left;
-  clear: left;
-  position: relative;
-  padding: 10px;
-  text-align: center;
-}
-
 li a {
   display: block;
   color: black;
@@ -72,4 +64,12 @@ body {
   background-color: #e8eaff;
   text-align: center;
   border-radius: 8px;
+}
+
+.comment-item {
+  background-color: #e8eaff;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  text-align: left;
+  border-radius: 25px;
 }

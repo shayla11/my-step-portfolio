@@ -55,8 +55,8 @@ async function getComments() {
 //TODO: Implement a method to delete comments. Includes deletion of duplicates
 
 function createListElement(text) {
-    const liElement = document.createElement('li-comment');
-    liElement.className = "comment";
+    const liElement = document.createElement('ul');
+    liElement.className = "comment-item";
     liElement.innerText = text;
     return liElement;
 }
