@@ -42,17 +42,18 @@ function addRandomMovieQuote() {
 /**
  * Loads comments that have been made from user input
  */
-async function getComments() {
+function getComments() {
     fetch('/data').then(response => response.json()).then((tasks) => {
         const messageList = document.getElementById('comment-container');
         messageList.innerHTML = '';
+
         for (let i = 0; i < tasks.length; i++) {
-            messageList.appendChild(createListElement(tasks[i].text));
+            messageList.appendChild(createListElement(tasks[i].text + ' : '+ tasks[i].name));
         }
     });
 }
 
-//TODO: Implement a method to delete comments. Includes deletion of duplicates
+
 
 function createListElement(text) {
     const liElement = document.createElement('ul');
