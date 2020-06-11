@@ -48,16 +48,16 @@ function getComments() {
         messageList.innerHTML = '';
 
         for (let i = 0; i < tasks.length; i++) {
-            messageList.appendChild(createListElement(tasks[i].text + ' : '+ tasks[i].name));
+            messageList.appendChild(createListElement(tasks[i].name.bold() + ' commented : '+ tasks[i].text + ' @ ' + tasks[i].timestamp));
         }
     });
 }
 
 
 
-function createListElement(text) {
+function createListElement(fullComment) {
     const liElement = document.createElement('ul');
     liElement.className = "comment-item";
-    liElement.innerText = text;
+    liElement.innerText = fullComment;
     return liElement;
 }
