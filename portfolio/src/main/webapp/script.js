@@ -43,11 +43,11 @@ function addRandomMovieQuote() {
  * Loads comments that have been made from user input
  */
 function getComments() {
-    fetch('/data').then(response => response.json()).then((tasks) => {
+    fetch('/data').then(response => response.json()).then((commentList) => {
         const messageList = document.getElementById('comment-container');
         messageList.innerHTML = '';
-        for (let i = 0; i < tasks.length; i++) {
-            messageList.appendChild(createListElement(tasks[i].name + ' : ' + tasks[i].text));
+        for (let i = 0; i < commentList.length; i++) {
+            messageList.appendChild(createListElement(comments[i].name + ' : ' + comments[i].text));
         }
     });
 }
