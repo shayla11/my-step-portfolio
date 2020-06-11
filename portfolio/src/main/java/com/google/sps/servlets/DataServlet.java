@@ -47,8 +47,7 @@ public class DataServlet extends HttpServlet {
 	for (Entity entity : results.asIterable()) {
       String text = (String) entity.getProperty("text");
       String name = (String) entity.getProperty("name");
-      long timestamp = (long) entity.getProperty("timestamp");
-      Comment task = new Comment(name, text, timestamp);
+      Comment task = new Comment(name, text);
       tasks.add(task);
     }
     response.setContentType("application/json;");
@@ -59,11 +58,9 @@ public class DataServlet extends HttpServlet {
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     String text = getParameter(request, "text-input", "");
     String name = getParameter(request, "name-input", "");
-    long timestamp = System.currentTimeMillis();
     Entity taskEntity = new Entity("Task");
     taskEntity.setProperty("text", text);
     taskEntity.setProperty("name", name);
-    taskEntity.setProperty("timestamp", timestamp);
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(taskEntity);
     response.sendRedirect("/index.html");

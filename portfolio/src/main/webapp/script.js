@@ -48,7 +48,7 @@ function getComments() {
         messageList.innerHTML = '';
 
         for (let i = 0; i < tasks.length; i++) {
-            messageList.appendChild(createListElement(tasks[i].name + '  :      '+ tasks[i].text));
+            messageList.appendChild(createListElement(tasks[i].name + '  :      ' + tasks[i].text));
         }
     });
 }
