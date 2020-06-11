@@ -43,6 +43,8 @@ function addRandomMovieQuote() {
  * Loads comments that have been made from user input
  */
 function getComments() {
+
+
     fetch('/data').then(response => response.json()).then((tasks) => {
         const messageList = document.getElementById('comment-container');
         messageList.innerHTML = '';
@@ -51,6 +53,7 @@ function getComments() {
             messageList.appendChild(createListElement(tasks[i].name + '  :      ' + tasks[i].text));
         }
     });
+
 }
 
 function createListElement(fullComment) {
@@ -58,4 +61,11 @@ function createListElement(fullComment) {
     liElement.className = "comment-item";
     liElement.innerText = fullComment;
     return liElement;
+}
+
+function deleteComments() {
+//call correct fetch that can delete data
+  while (messageList.firstChild) {
+    messageList.removeChild(messageList.firstChild);
+  }
 }
