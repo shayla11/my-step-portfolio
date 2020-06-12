@@ -46,6 +46,10 @@ public class DataServlet extends HttpServlet {
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
 
+    String thisUrl = request.getRequestURI();
+
+
+
     UserService userService = UserServiceFactory.getUserService();
     if (userService.isUserLoggedIn()) {
       String userEmail = userService.getCurrentUser().getEmail();
@@ -56,8 +60,6 @@ public class DataServlet extends HttpServlet {
     } else {
       String urlToRedirectToAfterUserLogsIn = "/index";
       String loginUrl = userService.createLoginURL(urlToRedirectToAfterUserLogsIn);
-
-
     }
 
 
