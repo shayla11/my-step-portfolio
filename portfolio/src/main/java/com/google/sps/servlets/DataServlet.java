@@ -14,6 +14,8 @@
 
 package com.google.sps.servlets;
 
+import com.google.appengine.api.users.UserService;
+import com.google.appengine.api.users.UserServiceFactory;
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,6 +45,22 @@ public class DataServlet extends HttpServlet {
     Query query = new Query("Comment");
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
+
+    UserService userService = UserServiceFactory.getUserService();
+    if (userService.isUserLoggedIn()) {
+      String userEmail = userService.getCurrentUser().getEmail();
+      String urlToRedirectToAfterUserLogsOut = "/index";
+      String logoutUrl = userService.createLogoutURL(urlToRedirectToAfterUserLogsOut);
+
+  
+    } else {
+      String urlToRedirectToAfterUserLogsIn = "/index";
+      String loginUrl = userService.createLoginURL(urlToRedirectToAfterUserLogsIn);
+
+
+    }
+
+
 
 	for (Entity commentEntity : results.asIterable()) {
       String text = (String) commentEntity.getProperty("text");
