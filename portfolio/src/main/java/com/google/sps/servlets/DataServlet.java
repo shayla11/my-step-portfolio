@@ -35,34 +35,34 @@ import com.google.sps.data.Comment;
 public class DataServlet extends HttpServlet {
 
   private ArrayList <String> comments = new ArrayList <String>();
-  private ArrayList<Comment> tasks = new ArrayList<Comment>();
+  private ArrayList<Comment> commentList = new ArrayList<Comment>();
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     Gson gson = new Gson();
-    Query query = new Query("Task").addSort("timestamp", SortDirection.DESCENDING);
+    Query query = new Query("Comment");
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
 
-	for (Entity entity : results.asIterable()) {
-      String text = (String) entity.getProperty("text");
-      long timestamp = (long) entity.getProperty("timestamp");
-      Comment task = new Comment(text, timestamp);
-      tasks.add(task);
+	for (Entity commentEntity : results.asIterable()) {
+      String text = (String) commentEntity.getProperty("text");
+      String name = (String) commentEntity.getProperty("name");
+      Comment comment = new Comment(name, text);
+      commentList.add(comment);
     }
     response.setContentType("application/json;");
-    response.getWriter().println(gson.toJson(tasks));
+    response.getWriter().println(gson.toJson(commentList));
   }
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     String text = getParameter(request, "text-input", "");
-    long timestamp = System.currentTimeMillis();
-    Entity taskEntity = new Entity("Task");
-    taskEntity.setProperty("text", text);
-    taskEntity.setProperty("timestamp", timestamp);
+    String name = getParameter(request, "name-input", "");
+    Entity commentEntity = new Entity("Comment");
+    commentEntity.setProperty("text", text);
+    commentEntity.setProperty("name", name);
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-    datastore.put(taskEntity);
+    datastore.put(commentEntity);
     response.sendRedirect("/index.html");
     }
 

@@ -16,7 +16,7 @@
     <li><a href="blog.html">Blog</a></li>
   </ul>
   <div id="content">
-    <h1 style="font-size:80px;">Shayla's Portfolio</h1>
+    <h1 style="font-size:70px;">Shayla's Portfolio</h1>
     <img src="/images/me.jpg" alt="Picture of Shayla" width="300" height="300">
     <p> Howdy! My name is Shayla Sexton and This is my STEP portfolio!</p>
     <p> In this portfolio you can find <a href="projects.html"><b>Projects</b></a> that i'm working on, my
@@ -24,21 +24,25 @@
     <p>Click here to get a random movie quote:</p>
     <button onclick="addRandomMovieQuote()">Movie Quote</button>
     <div id="quote-container"></div>
-    <br><br>
+    <br><br><br><br>
   </div>
-  <div id="center">
-    <form action="/data" method="POST">
-      <br><br><br>
-      <p>Have feedback? Write your comments here!</p>
-      <textarea name="text-input" placeholder="Comment here!"></textarea>
-      <br><br>
-      <input type="submit"></input>
-      <br><br>
-    </form>
-  </div>
-  <div id="center">
-    <button onclick="getComments()">See Comments</button>
-    <div id="comment-container"></div>
+  <div id="content">
+    <div class="section">
+      <form action="/data" method="POST">
+        <p>Write your comments here!</p>
+        <textarea name="name-input" placeholder="Name" rows="1" cols="20" required></textarea>
+        <br>
+        <textarea name="text-input" placeholder="Comment here!" rows="3" cols="50"></textarea>
+        <br><br>
+        <input type="submit"></input>
+        <br><br>
+      </form>
+    </div>
+    <div id="center">
+      <button onclick="getComments()">See Comments</button>
+      <button onclick="deleteComments()">Delete Comments</button>
+      <div id="comment-container"></div>
+    </div>
   </div>
 </body>
 
