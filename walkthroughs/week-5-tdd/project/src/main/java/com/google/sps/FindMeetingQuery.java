@@ -22,20 +22,42 @@ import java.util.Collection;
 public final class FindMeetingQuery {
 
     public Collection<TimeRange> query(Collection<Event> events, MeetingRequest request) {
-        //Collects data from the request: Meeting duration and the Attendees
+        
+        //Collects data from the request: meeting duration and the attendees
         int duration = (int) request.getDuration();
         Collection<String> attendees = request.getAttendees();
-
-        
 
 
         //This is the collection of time ranges that we willl return that fits everyones schedule
         Collection<TimeRange> availableTimes = new ArrayList<>();
 
+        int startTime = 0;
+        int endOfDay = 1440;
+        boolean doesItFit = false;
 
+        //Goes through every time avalible in the day
+        while( startTime < endOfDay ) {
+            
+            int endTime = startTime + duration;
+            TimeRange potentialMeetTime = TimeRange.fromStartDuration(startTime, duration);
 
-        
+            //Checking if there is a time conflict, (Put this in a helper method later) Does not check attendees yet
+            for (Event event : events) {
+                TimeRange eventMeetTime = event.getWhen();
 
+                if (eventMeetTime.overlaps(potentialMeetTime) == false) {
+                    doesItFit = false;
+                } else {
+                    doesItFit = true;
+                    availableTimes.add(potentialMeetTime);
+                }
+
+            }
+            startTime = startTime + duration;
+
+        }
+
+        return availableTimes;
     }
 
 
