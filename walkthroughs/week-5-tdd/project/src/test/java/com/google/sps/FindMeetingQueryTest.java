@@ -52,6 +52,7 @@ public final class FindMeetingQueryTest {
   private static final int DURATION_90_MINUTES = 90;
   private static final int DURATION_1_HOUR = 60;
   private static final int DURATION_2_HOUR = 120;
+  private static final int DURATION_ALL_DAY = 480;
 
   private FindMeetingQuery query;
 
@@ -296,7 +297,7 @@ public final class FindMeetingQueryTest {
                 Arrays.asList(PERSON_A)),
             new Event("Event 2", TimeRange.fromStartDuration(TIME_0900AM, DURATION_30_MINUTES),
                 Arrays.asList(PERSON_B)),
-            new Event("Event 3", TimeRange.fromStartDuration(TimeRange.START_OF_DAY, duration.END_OF_DAY),
+            new Event("Event 3", TimeRange.fromStartDuration(TimeRange.START_OF_DAY, DURATION_ALL_DAY),
                 Arrays.asList(PERSON_C)));
 
         MeetingRequest request =
@@ -344,9 +345,9 @@ public final class FindMeetingQueryTest {
             new Event("Event 1", TimeRange.fromStartEnd(TimeRange.START_OF_DAY, TIME_0830AM, false),
                 Arrays.asList(PERSON_A)),
             new Event("Event 2", TimeRange.fromStartEnd(TIME_0900AM, TimeRange.END_OF_DAY, true),
-                Arrays.asList(PERSON_A)));
-            new Event("Event 3", TimeRange.fromStartEnd(TIME_0830AM, TIME_0845AM),
-                Arrays.asList(PERSON_B))
+                Arrays.asList(PERSON_A)),
+            new Event("Event 3", TimeRange.fromStartEnd(TIME_0830AM, TIME_0845AM, false),
+                Arrays.asList(PERSON_B)));
 
     MeetingRequest request = new MeetingRequest(Arrays.asList(PERSON_A, PERSON_B), DURATION_30_MINUTES);
 
@@ -389,7 +390,7 @@ public final class FindMeetingQueryTest {
   public void noMandatoryTwoOptionalWithNoGaps() {
 
     Collection<Event> events = Arrays.asList(
-        new Event("Event 1", TimeRange.fromStartDuration(TimeRange.START_OF_DAY, duration.END_OF_DAY),
+        new Event("Event 1", TimeRange.fromStartDuration(TimeRange.START_OF_DAY, DURATION_ALL_DAY),
             Arrays.asList(PERSON_A)),         
         new Event("Event 2", TimeRange.fromStartDuration(TIME_0900AM, DURATION_30_MINUTES),
             Arrays.asList(PERSON_B)));
