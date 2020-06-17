@@ -29,32 +29,31 @@ public final class FindMeetingQuery {
 
 
         //This is the collection of time ranges that we willl return that fits everyones schedule
+        Collection<TimeRange> unavailableTimes = new ArrayList<>();
         Collection<TimeRange> availableTimes = new ArrayList<>();
 
         int startTime = 0;
+        int endTime = startTime + duration;
         int endOfDay = 1440;
-        boolean doesItFit = false;
 
-        //Goes through every time avalible in the day
         while( startTime < endOfDay ) {
-            
-            int endTime = startTime + duration;
-            TimeRange potentialMeetTime = TimeRange.fromStartDuration(startTime, duration);
 
-            //Checking if there is a time conflict, (Put this in a helper method later) Does not check attendees yet
+            TimeRange unavailableMeetTime = TimeRange.fromStartDuration(startTime, duration);
+
+            /** 
+             * This loop goes through all the events and checks if it conflicts with the potential meeting time.
+             * It will add it to a list of unavailble times.
+             * From this I plan to rerse those values and collect the actaul availble meeting times.
+             */
             for (Event event : events) {
                 TimeRange eventMeetTime = event.getWhen();
 
-                if (eventMeetTime.overlaps(potentialMeetTime) == false) {
-                    doesItFit = false;
-                } else {
-                    doesItFit = true;
-                    availableTimes.add(potentialMeetTime);
-                }
+                if (eventMeetTime.overlaps(unavailableMeetTime) == true) {
+                        unavailableTimes.add(unavailableMeetTime);
+                } 
 
             }
             startTime = startTime + duration;
-
         }
 
         return availableTimes;
