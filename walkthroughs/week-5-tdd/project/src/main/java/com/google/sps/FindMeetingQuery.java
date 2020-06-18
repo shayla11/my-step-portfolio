@@ -16,7 +16,6 @@ package com.google.sps;
 
 import java.util.Collections;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Collection;
 
 public final class FindMeetingQuery {
@@ -26,7 +25,7 @@ public final class FindMeetingQuery {
         //Collects data from the request: meeting duration and the attendees
         int duration = (int) request.getDuration();
         Collection<String> attendees = request.getAttendees();
-        Collection<String> opAttendees = request.getOptionalAttendees();
+        //Collection<String> opAttendees = request.getOptionalAttendees();
 
         //This is the collection of time ranges that we willl return that fits everyones schedule
         Collection<TimeRange> availableTimes = new ArrayList<>();
@@ -34,7 +33,6 @@ public final class FindMeetingQuery {
 
         int startTime = 0;
         int endTime = startTime + duration;
-        boolean addTime = false;
 
         while( startTime < TimeRange.END_OF_DAY ) {
 
@@ -48,14 +46,11 @@ public final class FindMeetingQuery {
             for (Event event : events) {
                 TimeRange eventMeetTime = event.getWhen();
                 Collection<String> eventAttendees = event.getAttendees();
-
                 if (eventMeetTime.overlaps(unavailableMeetTime) == true) {
-                    //Still a iffy on the process of the disjoint.
                     if(Collections.disjoint(eventAttendees, attendees) == false) {
                         unavailableTimes.add(unavailableMeetTime);
                     }
                 } 
-
             }
             startTime = startTime + duration;
         }
@@ -77,7 +72,7 @@ public final class FindMeetingQuery {
             startTime = endTime + time.duration();
         }
 
-        //Checks for the last remaining block of time to add to the available times list
+        //Adds for the last remaining block of time to add to the available times list
         TimeRange lastTimeBlock =  TimeRange.fromStartEnd(startTime, TimeRange.END_OF_DAY, true);
         if (lastTimeBlock.duration() >= request.getDuration()) {
             availableTimes.add(lastTimeBlock);
