@@ -34,35 +34,31 @@ public final class FindMeetingQuery {
       int endTime = startTime + duration;
       
       // Cycles through the day, incrementally to check the potential time range.
-
       while (startTime < TimeRange.END_OF_DAY) {
 
-          TimeRange potentialMeetTime = TimeRange.fromStartDuration(startTime, duration);
+        TimeRange potentialMeetTime = TimeRange.fromStartDuration(startTime, duration);
 
-          /** 
-           * This loop goes through all the events and checks if it conflicts with the 
-           * potential meeting time. It will add it to a list of unavailble times.
-           * From this I plan to reverse those values and collect the actaul availble meeting times.
-           */
-          for (Event event : events) {
-            TimeRange eventMeetTime = event.getWhen();
-            Collection<String> eventAttendees = event.getAttendees();
-            if (eventMeetTime.overlaps(potentialMeetTime)) {
-              if (!Collections.disjoint(eventAttendees, attendees)) {
-                potentialTimes.add(potentialMeetTime);
-              }
-            } 
-          }
-          startTime = startTime + duration;
+        /** 
+         * This loop goes through all the events and checks if it conflicts with the 
+         * potential meeting time. It will add it to a list of unavailble times.
+         * From this I plan to reverse those values and collect the actaul availble meeting times.
+         */
+        for (Event event : events) {
+          TimeRange eventMeetTime = event.getWhen();
+          Collection<String> eventAttendees = event.getAttendees();
+          if (eventMeetTime.overlaps(potentialMeetTime)) {
+            if (!Collections.disjoint(eventAttendees, attendees)) {
+              potentialTimes.add(potentialMeetTime);
+            }
+          } 
         }
+        startTime = startTime + duration;
+      }
 
       // Resets startTime for next process of gathering surrounding time blocks
       startTime = 0;
 
-      /**
-       * This function loops through the unavailable time blocks and finds the surrounding
-       * time blocks around it. (AKA the actual available times)
-       */
+      // Loops through potential time blocks and finds the surrounding time blocks
       for (TimeRange time : potentialTimes) {
         endTime = time.start();
         //Creates a new Time range with correct minutes
