@@ -14,10 +14,54 @@
 
 package com.google.sps;
 
+import java.util.Collections;
+import java.util.ArrayList;
 import java.util.Collection;
 
 public final class FindMeetingQuery {
+
   public Collection<TimeRange> query(Collection<Event> events, MeetingRequest request) {
-    throw new UnsupportedOperationException("TODO: Implement this method.");
-  }
+        
+      // Collects data from the request: meeting duration and the attendees
+      int duration = (int) request.getDuration();
+      Collection<String> attendees = request.getAttendees();
+
+      // This is the collection of time ranges that we will return that fits everyones schedule.
+      Collection<TimeRange> availableTimes = new ArrayList<>();
+      Collection<TimeRange> potentialTimes = new ArrayList<>();
+
+      int startTime = 0;
+      
+      // Cycles through the day, incrementally to check the potential time range.
+      while (startTime + duration < TimeRange.END_OF_DAY) {
+
+        TimeRange potentialMeetTime = TimeRange.fromStartDuration(startTime, duration);
+
+        for (Event event : events) {
+          TimeRange eventMeetTime = event.getWhen();
+          Collection<String> eventAttendees = event.getAttendees();
+          if (!eventMeetTime.overlaps(potentialMeetTime)) {
+            if (potentialTimeConflicts(eventAttendees)) {
+              availableTimes.add(potentialMeetTime);
+            }
+          } 
+        }
+        startTime++;
+      }    
+
+      // Adds for the last remaining block of time to add to the available times list
+      TimeRange lastTimeBlock =  TimeRange.fromStartEnd(startTime, TimeRange.END_OF_DAY, true);
+      if (lastTimeBlock.duration() >= request.getDuration()) {
+        availableTimes.add(lastTimeBlock);
+      }
+      return availableTimes;
+    }
+
+    /*
+     * TODO: Implement function that checks if the attendees needs to attend the meeting
+     */
+    public boolean potentialTimeConflicts(Collection<String> eventAttendees) { 
+        return (Collections.disjoint(eventAttendees, attendees));
+    }
+
 }
